@@ -7,6 +7,7 @@ import com.stackroute.repository.CharityRepository;
 import com.stackroute.repository.DeliveryBoyRepository;
 import com.stackroute.repository.RestaurantRepository;
 import com.stackroute.service.rabbitMQservice.SendOutput;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -192,7 +193,9 @@ public class DonationServiceImpl implements DonationService
             System.out.println(" Fetched Delivery Boys for Cluster of Charity : " + charity.getCharityName() + " Sorted By Distance and their Availability\n");
 
             System.out.println("trying to print>>>>>>>>>>>>>>>>>>>>>>>>>>>>.");
-            System.out.println(deliveryBoyList.size());
+            for( int j = 0; j < deliveryBoyList.size(); j++) {
+                System.out.println(deliveryBoyList.get(j));
+            }
             DeliveryBoy deliveryBoy = deliveryBoyList.get(0);
 
             System.out.println("Delivery Boy { " + deliveryBoy.getDeliveryBoyId() + " " + deliveryBoy.getDeliveryBoyName() + " }\n");
